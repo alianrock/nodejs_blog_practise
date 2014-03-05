@@ -1,0 +1,99 @@
+
+<%-include header%>
+<% var id1=0,id2=0; %>
+	<% locals.articles.forEach(function(article,index){ %>
+		 <% id1= article.id; %>
+		<div class="row">
+			<div class="col-md-12">
+				<h1><%=article.title%></h1>
+				<p>
+					<small style="padding-right:10px">作者：<a href="#"><%=article.username%></a></small>
+					<small>时间：<%=article.time.minute%></small>
+					<%if(user){%>
+						<small><a href="#" id="del">[删除]</a></small>
+						<small><a href="/article/edit/<%=id1%>" id="edit">[编辑]</a></small>
+					<%}%>
+				</p>	
+				<p><%-article.article%></p>	
+			</div>
+		</div>	
+		<% });%>
+		<div class="row">
+			<h2>评论：</h2>
+			<form class="" action="/article/comment/<%=id1%>" method="post" role="form">
+				<filedset>
+					<div class="form-group ">
+						<label for="email">邮箱</label>
+						<input id="email" class="form-control" name="email" type="text"/>
+					</div>	
+					<div class="form-group ">
+						<label for="name">昵称</label>
+						<input id="name" class="form-control" name="name" type="text"/>
+					</div>	
+
+					<div class="form-group">
+						<label for="content">评论内容</label>
+						<textarea class="form-control" id="content"  name="content" ></textarea>
+						<input type="hidden" name="reply_content" id="reply_content"/>
+					</div>	
+					
+					<div class="form-group">
+						<input type="submit"class="btn btn-primary" id="submit" value="提交"/>
+					</div>
+				</filedset>
+			</form>
+		</div>	
+		
+		<% locals.comments.forEach(function(comment,index){ %>
+			<div class="row">
+				<h3><%=comment.name%></h3>
+				<p>
+					<small  style="padding-right:10px">邮箱：<%=comment.email%></small>
+					<small>时间：<%=comment.time%></small>
+					<%if(user){%>
+						<small><a href="#" class="del_comment">[删除]<span style="display:none" class="com_num"><%=comment.id%></span>	</a><a href="#email" class="reply">[回复]</a></small>
+					<%}%>
+				</p>
+				<p><%-comment.content%></p>
+			</div>
+		<% }) %>
+		<script src="/javascripts/jquery-2.0.2.min.js"></script>
+		<script>
+			$(function(){
+				$('#del').click(function(){
+					alert('确认删除吗？');
+					$.post('/article/del',{id:<%= id1%>},function(data){
+						if(data.status == 1){
+							window.location.href="/";
+						}else{
+							alert('删除失败');
+						}
+
+					});
+					return false;
+				});
+				$('.del_comment').click(function(){
+					var com_num = $(this).find('.com_num').html();
+					alert('确认删除吗？');
+					$.post('/comment/del',{id:com_num},function(data){
+						if(data.status == 1){
+							window.location.href="/article/"+<%= id1%>;
+						}else{
+							alert('删除失败');
+						}
+
+					});
+					return false;
+				});
+				$('.reply').click(function(){
+					var replyUser = $(this).closest('.row').find('h3').html();
+					var replyContent = $(this).closest('.row').find('p:eq(1)').html();
+					var str = "<div style='backgroud:#777;border:1px solid #cccccc;border-radius:5px;padding:10px 10px 0 10px;margin:10px;color:#cccccc;'>昵称："+replyUser+"<p>内容："+replyContent+"</p></div>";
+					$('#content').focus().val("回复：");
+					$('#reply_content').val(str);
+				});
+				$('.')
+			});
+			
+		</script>
+<%-include footer%>

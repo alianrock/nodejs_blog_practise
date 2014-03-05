@@ -1,0 +1,26 @@
+<%-include header%>
+<div id="container" class="container">
+	<h1><%=title%></h1>
+	<form class="form-horizontal" method="post" role="form">
+		<filedset>
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">用户名</label>
+				<div class="col-sm-5">
+					<input id="username" class="form-control" name="username" type="text"/>
+				</div>
+			</div>	
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label">密码</label>
+				<div class="col-sm-5">
+					<input id="password" class="form-control" name="password" type="password"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit"class="btn btn-primary" value="登陆"/>
+				</div>
+			</div>
+		</filedset>
+	</form>
+</div>
+<%-include footer%>

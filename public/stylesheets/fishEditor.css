@@ -1,0 +1,200 @@
+#common-toolbar {
+	position: absolute;
+	padding: 2px;
+	border:1px solid #868686;
+	border-radius:3px;
+	background:#F5F5F5;
+	display:none;
+	box-shadow:0px 0px 10px #868686;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+#common-toolbar:hover {
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+#common-toolbar, #common-toolbar a {
+	font-family:Arial;
+}
+#common-toolbar, #common-toolbar .toolbar-btn-wrap {
+	overflow:visible;
+}
+
+/**button style*/
+.toolbar-btn-wrap {
+	position:relative;
+	min-width: 20px;
+	min-height: 20px;
+	margin: 5px;
+	border-radius:2px;
+	background:inherit;
+	float: left;
+}
+.toolbar-btn {
+	font-size:12px;
+	text-align:center;
+	border:1px solid transparent;
+	padding:2px;
+	color:#474747;
+	text-decoration:none;
+	text-shadow:0 1px 0 rgba(255,255,255,.5);
+	background:url(icons.png) no-repeat;
+	border-radius:2px;
+	display:block;
+	outline:none;
+}
+.toolbar-btn:hover {
+	border:1px solid #DCAC6C;
+	background-color:#FFF5D4;
+	text-decoration:none;
+}
+#toolbar-btn-bold {
+	background-position:center -31px;
+}
+#toolbar-btn-italic {
+	background-position:center -63px;
+}
+#toolbar-btn-underline {
+	background-position:center -191px;
+}
+#toolbar-btn-justifyLeft {
+	background-position:center -1631px;
+}
+#toolbar-btn-justifyCenter {
+	background-position:center -1599px;
+}
+#toolbar-btn-justifyRight {
+	background-position:center -1663px;
+}
+#toolbar-btn-insertUnorderedList {
+	background-position:center -703px;
+}
+#toolbar-btn-insertOrderedList {
+	background-position:center -767px;
+}
+#toolbar-btn-indent {
+	background-position:center -831px;
+}
+#toolbar-btn-outdent {
+	background-position:center -895px;
+}
+#toolbar-btn-createLink {
+	background-position:center -1759px;
+}
+#toolbar-btn-unlink {
+	background-position:center -1791px;
+}
+#toolbar-btn-insertImage {
+	background-position:center -1502px;
+}
+#toolbar-btn-insertHorizontalRule {
+	background-position:2px -1438px;
+}
+#toolbar-btn-foreColor {
+	background-position:2px -543px;
+}
+#toolbar-btn-backColor {
+	background-position:2px -511px;
+}
+#toolbar-btn-fontSize {
+	border:1px solid #C0C4D0;
+	background:#EEF0FC;
+}
+#toolbar-btn-fontName {
+	border:1px solid #C0C4D0;
+	background:#EEF0FC;
+}
+#toolbar-btn-specialChar {
+	background-position:2px -2431px;
+}
+#toolbar-btn-removeFormat {
+	background-position:center -2528px;
+}
+#toolbar-btn-scope {
+	border:1px solid #C0C4D0;
+	background:#EEF0FC;
+}
+#toolbar-btn-fontSize:hover, #toolbar-btn-fontName:hover, #toolbar-btn-scope:hover {
+	border:1px solid #DCAC6C;
+	background:#FFF5D4;
+}
+
+/**panel style*/
+.toolbar-panel {
+	position:absolute;
+	left:0px;
+	top:20px;
+	display:none;
+	border:1px #868686 solid;
+	box-shadow:0px 0px 10px #AAA;
+	background:#F5F5F5;
+	z-index:5;
+	/*padding:3px;*/
+}
+#toolbar-btn-foreColor-wrap .toolbar-panel input, #toolbar-btn-backColor-wrap .toolbar-panel input {
+	width:15px;
+	height:15px;
+	border:none;
+	padding:0px;
+	outline:none;
+	margin:0px;
+	float:left
+}
+#toolbar-btn-fontName-wrap .toolbar-panel a, #toolbar-btn-fontSize-wrap .toolbar-panel a {
+	width:90px;
+	height:auto;
+	border:1px solid transparent;
+	color:#474747;
+	font-size:15px;
+	text-decoration:none;
+	text-align:left;
+	background:none;
+	outline:none;
+	display:block;
+}
+#toolbar-btn-fontName-wrap .toolbar-panel a:hover, #toolbar-btn-fontSize-wrap .toolbar-panel a:hover {
+	border:1px solid #DCAC6C;
+	background:#FFF5D4;
+}
+#toolbar-btn-specialChar-wrap .toolbar-panel a {
+	width:auto;
+	height:auto;
+	border:1px solid transparent;
+	color:#474747;
+	font-size:12px;
+	text-decoration:none;
+	text-align:left;
+	background:none;
+	outline:none;
+	display:block;
+}
+#toolbar-btn-specialChar-wrap .toolbar-panel a:hover {
+	border:1px solid #DCAC6C;
+	background:#FFF5D4;
+}
+#toolbar-btn-specialChar-wrap .toolbar-panel #special-char-more {
+	margin:2px;
+	text-align:right;
+}
+#toolbar-btn-insertHorizontalRule-wrap .toolbar-panel td a {
+	width:90px;
+	height:auto;
+	border:1px solid transparent;
+	text-decoration:none;
+	background:none;
+	outline:none;
+	display:block;
+}
+#toolbar-btn-insertHorizontalRule-wrap .toolbar-panel td a:hover {
+	border:1px solid #DCAC6C;
+	background:#FFF5D4;
+}
+
+/**arrows style*/
+.toolbar-btn-arrows {
+	border-left:3px solid transparent;
+	border-right:3px solid transparent;
+	border-top:3px solid #707F92;
+	margin:6px 2px 0 12px;
+	float:right;
+}

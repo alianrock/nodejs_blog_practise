@@ -1,0 +1,33 @@
+
+<%-include header%>
+<% var page_count = 6;%>
+<h1>滴茶人生</h1>
+<div class="row">
+	<div class="col-md-8">
+		<% locals.articles.forEach(function(article,index){ %>
+			<% if(index==page_count){return}%>
+			<div class="row">
+				<div class="col-md-12">
+					<a href="article/<%=article.id %>"><h2><%=article.title%></h2></a>
+					<p>
+						<small style="padding-right:10px">作者：<a href="#"><%=article.username%></a></small>
+						<small>时间：<%=article.time.minute%></small>
+					</p>	
+					<p><%-article.article%></p>	
+				</div>
+			</div>	
+		<% });%>
+		<div class="row">
+			<%if(nowPage!=1){%>
+				<a href="/?page=<%=(nowPage-1)%>" class="btn btn-primary">上一页</a>
+			<% }%>
+			<%if(nowPage!=Math.ceil(total/10)){%>
+				<a href="/?page=<%=(nowPage+1)%>" style="float:right" class="btn btn-primary">下一页</a>
+			<%}%>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<h2>sidebar</h2>
+	</div>
+</div>
+<%-include footer%>

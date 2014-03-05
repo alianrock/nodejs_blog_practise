@@ -1,0 +1,42 @@
+<%-include header%>
+		
+			<h1><%=title%></h1>
+			<form class="" method="post" role="form">
+				<filedset>
+					<div class="form-group">
+						<label for="title">文章标题</label>
+						<input id="title" class="form-control" name="title" type="text"/>
+					</div>	
+
+					<div class="form-group">
+						<label for="article">正文</label>
+						<textarea class="form-control" id="article"  name="article" style="display:none"></textarea>
+						<div style="overflow:scroll;height:300px;width:100%;border:1px solid #000" id="edit" contenteditable="true"></div>
+						<script src="/javascripts/fishEditor.js"></script>
+						<script>
+							
+							  var fishEditor = new FishEditor({
+							    cssPath : '/stylesheets/',
+							    top : '200px',
+							    left : '280px',
+									visible : true
+							  });
+							   fishEditor.edit('edit');
+
+						</script>
+					</div>	
+					
+					<div class="form-group">
+						<input type="submit"class="btn btn-primary" id="submit" value="提交"/>
+					</div>
+				</filedset>
+			</form>
+			<script src="/javascripts/jquery-2.0.2.min.js"></script>
+			<script>
+				$(function(){
+					$('#submit').click(function(){
+						$('#article').val($('#edit').html());
+					});			
+				})
+			</script>
+<%-include footer%>
